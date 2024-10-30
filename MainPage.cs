@@ -36,6 +36,8 @@ namespace weather_app
                     label2.Text = $"Feels Like: {weatherData.Main.FeelsLike}°C";
                     label4.Text = $"Temp min: {weatherData.Main.TempMin}";
                     label5.Text = $"Temp max: {weatherData.Main.TempMax}";
+                    label6.Text = $"Pressure: {weatherData.Main.Pressure}";
+                    label7.Text = $"Humidity: {weatherData.Main.Humidity}";
                 }
                 catch (Exception ex)
                 {
@@ -68,6 +70,16 @@ namespace weather_app
         {
             // temp max temperature label click handler
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            // pressure
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            // humidity
+        }
     }
 
     public class WeatherData
@@ -89,5 +101,13 @@ namespace weather_app
         [JsonProperty("temp_max")]
 
         public double TempMax { get; set; }
+
+        [JsonProperty("Pressure")]
+
+        public double Pressure { get; set; }
+
+        [JsonProperty("Humidity")]
+
+        public double Humidity { get; set; }
     }
 }
