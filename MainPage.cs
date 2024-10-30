@@ -30,13 +30,13 @@ namespace weather_app
                     string jsonResponse = await response.Content.ReadAsStringAsync();
                     var weatherData = JsonConvert.DeserializeObject<WeatherData>(jsonResponse);
 
-                    // display the temperature and feels like temperature
+                    // display the data
                     label1.Text = $"Temperature: {weatherData.Main.Temp}°C";
                     label2.Text = $"Feels Like: {weatherData.Main.FeelsLike}°C";
-                    label4.Text = $"Temp min: {weatherData.Main.TempMin}";
-                    label5.Text = $"Temp max: {weatherData.Main.TempMax}";
-                    label6.Text = $"Pressure: {weatherData.Main.Pressure}";
-                    label7.Text = $"Humidity: {weatherData.Main.Humidity}";
+                    label4.Text = $"Temp min: {weatherData.Main.TempMin}°C";
+                    label5.Text = $"Temp max: {weatherData.Main.TempMax}°C";
+                    label6.Text = $"Pressure: {weatherData.Main.Pressure}hPa";
+                    label7.Text = $"Humidity: {weatherData.Main.Humidity}%";
                 }
                 catch (Exception ex)
                 {
@@ -47,17 +47,17 @@ namespace weather_app
 
         private void label1_Click(object sender, EventArgs e)
         {
-            // temperature label click handler
+            // temperature
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            // feels like temperature label click handler
+            // feels like temperature
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            // search text box
+            // search box
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -75,12 +75,12 @@ namespace weather_app
 
         private void label4_Click(object sender, EventArgs e)
         {
-            // temp min temperature label click handler
+            // temp min
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
-            // temp max temperature label click handler
+            // temp max
         }
 
         private void label6_Click(object sender, EventArgs e)
