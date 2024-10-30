@@ -58,7 +58,12 @@ namespace weather_app
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            // search text box
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // search button
         }
 
         private void label4_Click(object sender, EventArgs e)
