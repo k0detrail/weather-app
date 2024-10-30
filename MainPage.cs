@@ -14,6 +14,9 @@ namespace weather_app
         {
             InitializeComponent();
             LoadWeatherData("Midsayap"); // load initial city data
+
+            // attaches the KeyDown event handler to textBox1
+            textBox1.KeyDown += new KeyEventHandler(textBox1_KeyDown);
         }
 
         private async void LoadWeatherData(string city)
@@ -58,6 +61,16 @@ namespace weather_app
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             // search box
+        }
+
+        // checks if the key pressed is enter key. if so, it calls button1_Click to execute the search
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // prevents the "ding" sound
+                button1_Click(this, new EventArgs()); // calls the search button click method
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
