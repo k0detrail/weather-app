@@ -9,17 +9,16 @@ namespace weather_app
     public partial class MainPage : Form
     {
         private const string ApiKey = "941f082f0e3a26b785cb79a1c053ef26";
-        private const string City = "Midsayap";
 
         public MainPage()
         {
             InitializeComponent();
-            LoadWeatherData();
+            LoadWeatherData("Midsayap"); // load initial city data
         }
 
-        private async void LoadWeatherData()
+        private async void LoadWeatherData(string city)
         {
-            string apiUrl = $"http://api.openweathermap.org/data/2.5/weather?q={City}&appid={ApiKey}&units=metric";
+            string apiUrl = $"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={ApiKey}&units=metric";
 
             using (HttpClient client = new HttpClient())
             {
@@ -63,7 +62,15 @@ namespace weather_app
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // search button
+            string city = textBox1.Text.Trim();
+            if (!string.IsNullOrEmpty(city))
+            {
+                LoadWeatherData(city);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a city name.");
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
